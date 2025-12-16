@@ -1,0 +1,14 @@
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/bin/Debug/net8.0/Proyecto 2
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/bin/Debug/net8.0/Proyecto 2.deps.json
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/bin/Debug/net8.0/Proyecto 2.runtimeconfig.json
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/bin/Debug/net8.0/Proyecto 2.dll
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/bin/Debug/net8.0/Proyecto 2.pdb
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/obj/Debug/net8.0/Proyecto 2.GeneratedMSBuildEditorConfig.editorconfig
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/obj/Debug/net8.0/Proyecto 2.AssemblyInfoInputs.cache
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/obj/Debug/net8.0/Proyecto 2.AssemblyInfo.cs
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/obj/Debug/net8.0/Proyecto 2.csproj.CoreCompileInputs.cache
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/obj/Debug/net8.0/Proyecto 2.dll
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/obj/Debug/net8.0/refint/Proyecto 2.dll
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/obj/Debug/net8.0/Proyecto 2.pdb
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/obj/Debug/net8.0/Proyecto 2.genruntimeconfig.cache
+/home/alex/Documentos/Proyecto Salon de Fiesta N/Proyecto 2/obj/Debug/net8.0/ref/Proyecto 2.dll

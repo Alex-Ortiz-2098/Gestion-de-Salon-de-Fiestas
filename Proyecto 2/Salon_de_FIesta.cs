@@ -247,15 +247,16 @@ namespace Proyecto_2
 		
 		public bool ExisteEvento(int dni, DateTime fecha)
 		{
-			foreach (Evento ev in Lista_Eventos)
-			{
-				if (ev.CLIENTEVENTO.DNI == dni && ev.FECHAYHORA.Date == fecha.Date)
+				foreach (Evento ev in Lista_Eventos)
 				{
-					return true;
+					if (ev.CLIENTEVENTO.DNI == dni && ev.FECHAYHORA.Date == fecha.Date)
+					{
+						return true;
+					}
 				}
+				return false;
 			}
-			return false;
-		}
+			
 		
 		public void EliminarEvento(Evento ev)
 		{
@@ -277,7 +278,6 @@ namespace Proyecto_2
 
 			return new Encargado(e.NOMBRE,e.APELLIDO,e.DNI,e.NUMERO_LEGAJO,e.SUELDO,e.TAREA, plus);
 		}
-		
 		public void ImprimirListaEvento()
 		{
 			foreach (Evento x in Lista_Eventos)
@@ -298,9 +298,13 @@ namespace Proyecto_2
 			}
 		}
 
-		public bool verDisponibilidad(List<Encargado> lista)
+		public bool verDisponibilidadEncargado()
 		{
-			foreach(Encargado x in lista)
+			if(esVacio<Encargado>(Lista_Encargados))
+			{
+				return false;
+			}
+			foreach(Encargado x in Lista_Encargados)
 			{
 				if(x.ESTAOCUPADO == true)
 				{
@@ -334,28 +338,38 @@ namespace Proyecto_2
 			return calculo;
         }
 
-		public void EleccionDePersonalAgregar(string OpcionPersonal)
+		public Encargado ObtenerEncargadoDisponible()
 		{
-			Console.WriteLine("Ingrese el DNI para verificar si existe en la Lista: ");
-			int dni = int.Parse(Console.ReadLine());
-			if (ExisteEmpleado(dni) || ExisteEncargado(dni))
+			if(esVacio<Encargado>(Lista_Encargados))
 			{
-				Console.WriteLine("El DNI que desea ingresar ya esta en el sistema.....");
+				return null;
 			}
-			else
+			foreach(Encargado x in Lista_Encargados)
 			{
-				if (OpcionPersonal == "empleado")
+				if(x.ESTAOCUPADO == false)
 				{
-					AgregarEmpleado(Fabrica.FabricaDeEmpleadoIngresada());
-					Console.WriteLine("-----Agregado con Exito-----");
-				}
-				if (OpcionPersonal == "encargado")
-				{
-					AgregarEncargado(Fabrica.FabricaDeEncargdoIngresada());
-					Console.WriteLine("-----Agregado con Exito-----");
+					return x;
 				}
 			}
+
+			return null;
 		}
 	
+
+		public Servicio BuscarServicio(string nombreServ)
+		{
+			if(esVacio<Servicio>(Lista_Servicios))
+			{
+				return null;
+			}
+			foreach(Servicio x in Lista_Servicios)
+			{
+				if(x.NOMBRE == nombreServ)
+				{
+					return x;
+				}
+			}
+			return null;
+		}
 	}
 }

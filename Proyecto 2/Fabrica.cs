@@ -6,6 +6,10 @@ namespace Proyecto_2
     class Fabrica
     {
         // los datos ingresados se crean una sola vez (por que son static) para minimizar el uso de memoria y la creacion de multiples generadores
+        protected Salon_de_Fiesta Salon;
+
+        protected EventoBuilder evento;
+
         protected static GeneradorDeDatosAleatorios DatoAle = new GeneradorDeDatosAleatorios();
         public static Servicio FabricaDeServicioAleaotrio()
         {
@@ -92,8 +96,7 @@ namespace Proyecto_2
             string Nombre= Console.ReadLine();
 			Console.WriteLine("Ingrese el dni: ");
 			int dni= int.Parse(Console.ReadLine());
-            return new Cliente(Nombre,dni);
+            return new Cliente(Nombre, dni);
         }
-    
     }
 }

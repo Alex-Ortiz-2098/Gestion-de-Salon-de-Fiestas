@@ -53,6 +53,7 @@ namespace Proyecto_2
 							Console.WriteLine("Ingrese el Dni del Cliente: ");
 							int D= int.Parse(Console.ReadLine());
 							Cliente ClienteEvento1= new Cliente(N,D);
+							
 							DateTime fecha= Evento.FechaEvento();
 							
 							foreach (Evento x in Aura_Real.LISTA_EVENTOS)

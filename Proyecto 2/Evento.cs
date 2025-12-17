@@ -19,6 +19,10 @@ la seña. */
 		private float Costo_Total; //(se calcula en base al precio de los servicios contratados y la cantidad)
 		private float Sena;
 		
+		public Evento()
+		{
+			
+		}
 		public Evento(Cliente cli, DateTime FHE, string tipoE,Encargado en,float CostoT, float Sen)
 		{
 			this.ClienteEvento=cli;
@@ -85,38 +89,7 @@ la seña. */
 			Lista_Servicios_Contrado.Add(x);
 		}
 		
-		public static DateTime FechaEvento()
-		{
-			while (true)
-			{
-				Console.Write("Ingrese la fecha y hora del evento (formato: dd/MM/yyyy HH:mm): ");
-				string entrada = Console.ReadLine();
-
-				try
-				{
-					DateTime fecha = DateTime.ParseExact(entrada, "dd/MM/yyyy HH:mm", null);
-
-					if (fecha < DateTime.Now)
-					{
-						Console.WriteLine("La fecha Corresponde a una fecha antigua, ingrese nuevamente la fecha...");
-						continue;
-					}
-
-					if (fecha.Month > 12)
-					{
-						Console.WriteLine("El mes ingresado no es válido, ingrese nuevamente la fecha...");
-						continue;
-					}
-
-					return fecha;
-				}
-				catch (FormatException)
-				{
-					Console.WriteLine("Formato inválido. Use el formato exacto: dd/MM/yyyy HH:mm");
-				}
-			}
-			
-		}
+		
 
 		public void ImprimirEvento()
 		{

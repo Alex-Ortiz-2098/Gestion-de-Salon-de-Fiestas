@@ -55,19 +55,37 @@ namespace Proyecto_2
                         {
                             Console.WriteLine("Desea ingresar un empleado o un encargado: ");
                             string res= Console.ReadLine().ToLower();
-                            IngresarPersonal(res);
-                            
+                            Salon.EleccionDePersonalAgregar(res);
                             break;
                             
                             
                         }
                     case "D": // Dar de BAJA un empleado/encargado
                         {
-                            break;
+
+                            Console.WriteLine("Para eliminar un Empleado/Encargdo ingrese el DNI: ");
+                            int Dni = int.Parse(Console.ReadLine());
+                            if (Salon.ExisteEmpleado(Dni))
+                            {
+                                Salon.EliminarEmpleado(Dni);
+                                Console.WriteLine("-----Eliminado con Exito-----");
+                                break;
+                            }
+                            if(Salon.ExisteEncargado(Dni))
+                            {
+                                Salon.EliminarEncargado(Dni);
+                                Console.WriteLine("-----Eliminado con Exito-----");
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("-----El Empleado/Encargado que desea eliminar no Existe o ya fue Borrado-----");
+                                break;
+                            }
                         }
                     case "E": // Reservar el salón para un evento.
-                        {
-                            break;
+                                {
+                                    break;
                         }
                     case "F": // Cancelar un evento
                         {
@@ -87,40 +105,6 @@ namespace Proyecto_2
                 }
             }while(respuesta != "X");
 				
-        }
-        public void IngresarPersonal(string OpcionPersonal)
-        {
-            if (OpcionPersonal == "empleado")
-                {
-                    Console.WriteLine("Ingrese el DNI para verificarsi existe en la Lista de Empleados: ");
-                    int dni= int.Parse(Console.ReadLine());
-                    if (Salon.ExisteEmpleado(dni))
-					{
-						Console.WriteLine("El empleado que desea ingresar ya esta en el sistema.....");
-                    }
-                }
-            else
-                {
-                    Empleado Emp= Fabrica.FabricaDeEmpleadoIngresada();
-                    Salon.AgregarEmpleado(Emp);
-                    Console.WriteLine("-----Agregado con Exito-----");
-                }
-            if (OpcionPersonal == "encargado")
-                {
-                    Console.WriteLine("Ingrese el DNI para verificarsi existe en la Lista de Empleados: ");
-                    int dni= int.Parse(Console.ReadLine());
-                    if (Salon.ExisteEncargado(dni))
-					{
-						Console.WriteLine("El encargado que desea ingresar ya esta en el sistema.....");
-                    }
-                }
-            else
-                {
-                    Encargado Enc= Fabrica.FabricaDeEncargdoIngresada();
-                    Salon.AgregarEncargado(Enc);
-                    Console.WriteLine("-----Agregado con Exito-----");
-                }
-
         }
     }
 }

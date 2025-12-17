@@ -21,8 +21,6 @@ namespace Proyecto_2
 		public static void Main(string[] args)
 		{
 			Salon_de_Fiesta Aura_Real= new Salon_de_Fiesta("Aura_Real", 500000);
-			Encargado en= new Encargado("","",0,0,50,"",15);
-			Console.WriteLine(Aura_Real.CalcularAumento(en));
 			
 			
 			
@@ -45,131 +43,7 @@ namespace Proyecto_2
 				
 				switch (respuesta) //MENU
 				{
-					case "A":
-						//Agregar Servicio
-						Console.WriteLine("Ingrese el Nombre del Servicio: ");
-						string Nombre= Console.ReadLine();
-						Console.WriteLine("Ingrese la Descripcion del Servicio: ");
-						string Descripcion= Console.ReadLine();
-						Console.WriteLine("Ingrese La cantidad de personal necesario para Servicio: ");
-						int cantP= int.Parse(Console.ReadLine());
-						Console.WriteLine("Ingrese el Costo Unitario del Servicio: ");
-						float Costo= float.Parse(Console.ReadLine());
-						Servicio s1= new Servicio(Nombre, Descripcion, cantP, Costo);
-						Aura_Real.AgregarServico(s1);
-						Console.WriteLine("-----Agregado con Exito-----");
-						break;
-					case "B":
-						// Eliminar Servicio
-						Console.WriteLine("Para eliminar un servicio ingrese el Nombre del Servicio: ");
-						Nombre= Console.ReadLine();
-						if(Aura_Real.ExisteServicio(Nombre) == true)
-						{
-							Aura_Real.EliminarServicio(Nombre);
-							Console.WriteLine("-----Eliminado con Exito-----");
-							break;
-						}
-						else
-						{
-							Console.WriteLine("-----El Servicio que desea eliminar no Existe o ya fue Borrado-----");
-							break;
-						}
-					case "C":
-						// Alta empleado/encargado
-						
-						Console.WriteLine("Desea ingresar un empleado o un encargado: ");
-						string res= Console.ReadLine().ToLower();
-						if (res == "empleado")
-						{
-							Console.WriteLine("Ingrese el Nombre del Empleado: ");
-							Nombre= Console.ReadLine();
-							Console.WriteLine("Ingrese el Apellido del Empleado: ");
-							string Apellido= Console.ReadLine();
-							Console.WriteLine("Ingrese el dni: ");
-							int dni= int.Parse(Console.ReadLine());
-							if (Aura_Real.ExisteEmpleado(dni))
-							{
-								Console.WriteLine("El empleado que desea ingresar ya esta en el sistema.....");
-								break;
-							}
-							else{
-								
-								Console.WriteLine("Ingrese el Numero de Legajo: ");
-								int Legajo= int.Parse(Console.ReadLine());
-								Console.WriteLine("Ingrese el Sueldo del Empleado: ");
-								float Sueldo= float.Parse(Console.ReadLine());
-								Console.WriteLine("Ingrese la Tarea del Empleado(Mozo,dj,cocinero,etc): ");
-								String Tarea= Console.ReadLine();
-								Empleado e1= new Empleado(Nombre,Apellido,dni,Legajo,Sueldo,Tarea);
-								Aura_Real.AgregarEmpleado(e1);
-								Console.WriteLine("-----Agregado con Exito-----");
-								break;
-								
-							}
-						}
-						if(res == "encargado")
-						{
-							Console.WriteLine("Ingrese el Nombre del Encargado: ");
-							Nombre= Console.ReadLine();
-							Console.WriteLine("Ingrese el Apellido del Encargado: ");
-							string Apellido= Console.ReadLine();
-							Console.WriteLine("Ingrese el dni del Encargado: ");
-							int dni= int.Parse(Console.ReadLine());
-							if (Aura_Real.ExisteEmpleado(dni))
-							{
-								Console.WriteLine("El empleado que desea ingresar ya esta en el sistema.....");
-								break;
-							}
-							else
-							{
-								
-								Console.WriteLine("Ingrese el Numero de Legajo del Encargado: ");
-								int Legajo= int.Parse(Console.ReadLine());
-								Console.WriteLine("Ingrese el Sueldo del Encargado: ");
-								float Sueldo= float.Parse(Console.ReadLine());
-								Console.WriteLine("Ingrese la Tarea del Encargado: ");
-								string Tarea= Console.ReadLine();
-								float Plus =-1;
-								while (true)
-								{
-									Console.WriteLine("Ingrese el Plus del Encargado (El numero ingresado debe estar entre 1 y 100): ");
-									Plus= float.Parse(Console.ReadLine());
-									if (Plus >= 1 && Plus <= 100)
-									{
-										break;
-									}
-									else
-									{
-										Console.WriteLine("El número debe estar entre 1 y 100. Intente nuevamente.");
-										
-									}
-								}
-								Encargado e1= new Encargado(Nombre,Apellido,dni,Legajo,Sueldo,Tarea,Plus);
-								Aura_Real.AgregarEncargado(e1);
-								Console.WriteLine("-----Agregado con Exito-----");
-								break;
-							}
-						}
-						else{
-							Console.WriteLine("No Ingreso correctamente el dato");
-							break;
-						}
-					case "D":
-						// Baja empleado/encargado
-						
-						Console.WriteLine("Para eliminar un Empleado/Encargdo ingrese el dni del Servicio: ");
-						int Dni= int.Parse(Console.ReadLine());
-						if(Aura_Real.ExisteEmpleado(Dni) == true)
-						{
-							Aura_Real.EliminarEmpleado(Dni);
-							Console.WriteLine("-----Eliminado con Exito-----");
-							break;
-						}
-						else
-						{
-							Console.WriteLine("-----El Empleado/Encargado que desea eliminar no Existe o ya fue Borrado-----");
-							break;
-						}
+					
 					case "E":
 						// Reservar salón
 						try

@@ -9,11 +9,10 @@ namespace Proyecto_2
 	{
 		private string Nombre;
 		private List<Evento> Lista_Eventos;
-   		private List<Empleado> Lista_Empleados;
-
-   		private List<Encargado> Lista_Encargados;
-   		private List<Cliente> Lista_Clientes;
-	    private List<Servicio> Lista_Servicios;
+		private List<Empleado> Lista_Empleados;
+		private List<Encargado> Lista_Encargados;
+		private List<Cliente> Lista_Clientes;
+		private List<Servicio> Lista_Servicios;
 		private float Precio_Base; // Es el precio que vale el salon sin sus servicios.
 		
 		public Salon_de_Fiesta()
@@ -143,6 +142,21 @@ namespace Proyecto_2
 			for(int i= Lista_Empleados.Count -1; i >= 0; i--)
 			{
 				Empleado e = (Empleado)Lista_Empleados[i];
+				
+				if (e.DNI == d)
+				{
+					Lista_Empleados.RemoveAt(i);
+					return;
+					
+				}
+			}
+		}
+
+		public void EliminarEncargado(int d)
+		{
+			for(int i= Lista_Encargados.Count -1; i >= 0; i--)
+			{
+				Encargado e = Lista_Encargados[i];
 				
 				if (e.DNI == d)
 				{
@@ -319,5 +333,29 @@ namespace Proyecto_2
             float calculo= (aumento*encargado.SUELDO)/100;
 			return calculo;
         }
+
+		public void EleccionDePersonalAgregar(string OpcionPersonal)
+		{
+			Console.WriteLine("Ingrese el DNI para verificar si existe en la Lista: ");
+			int dni = int.Parse(Console.ReadLine());
+			if (ExisteEmpleado(dni) || ExisteEncargado(dni))
+			{
+				Console.WriteLine("El DNI que desea ingresar ya esta en el sistema.....");
+			}
+			else
+			{
+				if (OpcionPersonal == "empleado")
+				{
+					AgregarEmpleado(Fabrica.FabricaDeEmpleadoIngresada());
+					Console.WriteLine("-----Agregado con Exito-----");
+				}
+				if (OpcionPersonal == "encargado")
+				{
+					AgregarEncargado(Fabrica.FabricaDeEncargdoIngresada());
+					Console.WriteLine("-----Agregado con Exito-----");
+				}
+			}
+		}
+	
 	}
 }

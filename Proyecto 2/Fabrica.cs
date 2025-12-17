@@ -47,6 +47,11 @@ namespace Proyecto_2
             return new Empleado(Nombre,Apellido,dni,Legajo,Sueldo,Tarea);
         }
 
+        public static Encargado FabricaDeEncargadoAlaotrio()
+        {
+            return new Encargado (DatoAle.stringAleatorio(10),DatoAle.stringAleatorio(10),DatoAle.numeroAleatorio(8),DatoAle.numeroAleatorio(10),DatoAle.numeroAleatorioFloat(999999999),DatoAle.stringAleatorio(10),DatoAle.numeroAleatorioFloat(100));
+        }
+
         public static Encargado FabricaDeEncargdoIngresada()
         {
             Console.WriteLine("Ingrese el Nombre del Empleado: ");
@@ -77,8 +82,18 @@ namespace Proyecto_2
             }
         }
 
-
-        //FALTAN AGREGAR LAS FABRICAS 
-        
+        public static Cliente FabricaDeClienteAlaotrio()
+        {
+            return new Cliente (DatoAle.stringAleatorio(10),DatoAle.numeroAleatorio(10));
+        }
+        public static Cliente FabricaDeClienteIngresado()
+        {
+            Console.WriteLine("Ingrese el Nombre del Cliente: ");
+            string Nombre= Console.ReadLine();
+			Console.WriteLine("Ingrese el dni: ");
+			int dni= int.Parse(Console.ReadLine());
+            return new Cliente(Nombre,dni);
+        }
+    
     }
 }
